@@ -1,0 +1,73 @@
+{
+    "smarthealthit" : {
+        "client_id": "not_used",
+        "scope": "launch launch/patient patient/*.read offline_access",
+        "redirectUri": "./redirect",
+        "url": "https://launch.smarthealthit.org/v/r3/sim/eyJoIjoiMSIsImIiOiJmMDQ2MjkzNi1lYjRiLTRkYTEtYjQ1YS1mYmQ5NmViZjhjY2IiLCJlIjoic21hcnQtUHJhY3RpdGlvbmVyLTcxNjE0NTAyIn0/fhir",
+        "patientId": "f0462936-eb4b-4da1-b45a-fbd96ebf8ccb",
+        "patientName": "Hai Champlin",
+        "comments": {
+            "note1": "Simulates a patient login at smarthealthit.org",
+            "note2": "The URL contains the patient ID embedded in JWT"
+        }
+    },
+    "publicHapiServer" : {
+        "client_id": "OPEN",
+        "scope": "launch launch/patient patient/*.read offline_access",
+        "redirectUri": "./redirect",
+        "url": "https://hapi.fhir.org/baseDstu2",
+        "patientId": "70079",
+        "patientName": "Berry Keebler",
+        "comments": {
+            "note1": [ "Simulates getting data without authentication from the ",
+                "publicly available server at hapi.fhir.org" ]
+        }
+    },
+    "localHapiServer" : {
+        "client_id": "OPEN",
+        "scope": "launch launch/patient patient/*.read offline_access",
+        "redirectUri": "./redirect",
+        "url": "http://localhost:8000/baseDstu2/",
+        "patientId": "smart-8888802",
+        "patientName": "Tiffany Westin",
+        "comment": {
+            "note1": [ "Allows getting data without authentication from a ",
+                "server you run locally" ],
+            "instructions": [ "To use run:",
+                "docker run -p 8000:8080 smartonfhir/hapi:r2-smart" ]
+        }
+    },
+    "smartdev" : {
+        "client_id": "not_used",
+        "scope": "launch launch/patient patient/*.read offline_access",
+        "redirectUri": "./redirect",
+        "url": "http://localhost:4013/v/r2/sim/eyJrIjoiMSIsImIiOiIwOTllN2RlNy1jOTUyLTQwZTItOWI0ZS0wZmFjZTc4YzlkODAifQ/fhir",
+        "patientId": "099e7de7-c952-40e2-9b4e-0face78c9d80",
+        "patientName": "Ms. Buena Abbott",
+        "comment": {
+            "note1": "Simulates a patient login at a server you can run locally",
+            "note2": "The URL contains the patient ID embedded in JWT",
+            "instructions": [ "To use clone the git repo and run the stack:",
+                "git clone https://github.com/smart-on-fhir/smart-dev-sandbox.git",
+                "docker-compose up" ]
+        }
+    },
+    "cerner" : {
+        "client_id": "taken from .env.local",
+        "scope": "openid profile patient/Patient.read patient/AllergyIntolerance.read patient/Condition.read",
+        "redirectUri": "http://localhost:9000/redirect",
+        "url": "https://fhir-myrecord.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d",
+        "comments": {
+            "note1": "Cerner APP Required see README.md"
+        }
+    },
+    "epic" : {
+        "client_id": "taken from .env.local",
+        "scope": "openid profile patient/Patient.read",
+        "redirectUri": "http://localhost:9000/redirect",
+        "url": "https://open-ic.epic.com/argonaut/api/FHIR/Argonaut/",
+        "comments": {
+            "note1": "EPIC APP Required see README.md"
+        }
+    }
+}
